@@ -1,1 +1,7 @@
-<p>home works!</p>
+<ul *ngIf="auth.user$ | async as user">
+    <li>{{ user.name }}</li>
+    <li>{{ user.email }}</li>
+</ul>
+<button *ngIf="auth.isAuthenticated$ | async; else loggedOut" class="btn btn-outline-danger" (click)="auth.logout()">
+    Log out
+</button>
